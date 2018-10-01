@@ -28,14 +28,14 @@
 			  text-decoration: none;
 			  outline: none;
 			  color: #fff;
-			  background-color: #4CAF50;
+			  background-color: #f0;
 			  border: none;
 			  border-radius: 15px;
 			  box-shadow: 0 9px #999;
 		}
-		.button:hover {background-color: #3e8e41}
+		.button:hover {background-color: #ff}
 		.button:active {
-			  background-color: #3e8e41;
+			  background-color: #ff;
 			  box-shadow: 0 5px #666;
 			  transform: translateY(4px);
 		}
@@ -45,7 +45,7 @@
 <body>
 	<h1>ALLIANCE CAPITALS Investment System</h1>
 	<form>
-		<label for="Cost">投入本金額度</label>
+		<label for="Cost">Cost</label>
 			<select Id="Cost" style="width: 150px;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;border: 2px solid blue;border-radius: 4px;background-color: lightblue;color: black;">
 				<option value="Lv1">1000</option>
 				<option value="Lv2">3000</option>
@@ -57,7 +57,7 @@
 				<option value="Lv8">100000</option>
 			</select>
 		<br>
-		<label for="Profit">預計回本天數</label>
+		<label for="Profit">Profit</label>
 		<input type="text" id="Profit" name="Profit">
 		<br>
 	</form>
@@ -104,10 +104,8 @@
 					default :
 				} 
 				Profit.value = ratio*days;
-				alert(ratio);
-				alert(days);
 			}
-		alert("name");
+		alert("Welcome!!");
 	</script>
 </body>
 	
