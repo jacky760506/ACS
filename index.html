@@ -66,6 +66,7 @@
 		var Profit = document.getElementById("Profit");
 		var ratio = 0;
 		var days = 0;
+		var amount = 0;
 			function count(){
             	var cost = document.getElementById("Cost").value;
 				switch (cost) {
@@ -103,7 +104,8 @@
 						break;						
 					default :
 				} 
-				Profit.value = ratio*days;
+				 amount = ratio*days;
+				Profit.value=amount.toFixed(2)
 			}
 		alert("Welcome!!");
 	</script>
