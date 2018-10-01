@@ -24,7 +24,7 @@
 			  padding: 15px 25px;
 			  font-size: 24px;
 			  cursor: pointer;
-			  text-align: center;
+			  text-align: center;	
 			  text-decoration: none;
 			  outline: none;
 			  color: #fff;
@@ -52,8 +52,14 @@
 		<input type="text" id="Profit" name="Profit">
 		<br>
 	</form>
-	<button class="button">Enter</button>
+	<button class="button" onclick= count()>Enter</button>
 	<script language="JavaScript">
+		var Profit = document.getElementById("Profit");
+		var amount = 0;
+			function count(){
+            	var cost = document.getElementById("Cost").value;
+				Profit.value = amount;
+			}
 		alert("Welcome!!");
 	</script>
 </body>
