@@ -46,7 +46,16 @@
 	<h1>ALLIANCE CAPITALS Investment System</h1>
 	<form>
 		<label for="Cost">投入本金額度</label>
-		<input type="text" id="Cost" name="Cost">
+			<select Id="Cost" style="width: 150px;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;border: 2px solid blue;border-radius: 4px;background-color: lightblue;color: black;">
+				<option value="Lv1">1000</option>
+				<option value="Lv2">3000</option>
+				<option value="Lv3">5000</option>
+				<option value="Lv4">10000</option>
+				<option value="Lv5">20000</option>
+				<option value="Lv6">30000</option>
+				<option value="Lv7">50000</option>
+				<option value="Lv8">100000</option>
+			</select>
 		<br>
 		<label for="Profit">預計回本天數</label>
 		<input type="text" id="Profit" name="Profit">
@@ -55,10 +64,38 @@
 	<button class="button" onclick= count()>Enter</button>
 	<script language="JavaScript">
 		var Profit = document.getElementById("Profit");
-		var amount = 0;
+		var ratio = 0;
+		var days = 0;
 			function count(){
             	var cost = document.getElementById("Cost").value;
-				Profit.value = amount;
+				switch (cost) {
+					case "Lv1" :
+						ratio = 2.86;
+						days = 180;
+					case "Lv2" :
+						ratio = 10.71;
+						days = 360;
+					case "Lv3" :
+						ratio = 17.85;
+						days = 360;
+					case "Lv4" :
+						ratio = 35.71;
+						days = 360;
+					case "Lv5" :
+						ratio = 78.57;
+						days = 360;	
+					case "Lv6" :
+						ratio = 128.57;
+						days = 360;	
+					case "Lv7" :
+						ratio = 214.28;
+						days = 360;	
+					case "Lv8" :
+						ratio = 428.57;
+						days = 360;		
+					default :
+				} 
+				Profit.value = ratio*days;
 			}
 		alert("Welcome!!");
 	</script>
