@@ -59,53 +59,69 @@
 		<br>
 		<label for="Profit">Profit</label>
 		<input type="text" id="Profit" name="Profit">
+		<label for="Days">Profit</label>
+		<input type="text" id="Days" name="Days">
 		<br>
 	</form>
 	<button class="button" onclick= count()>Enter</button>
 	<script language="JavaScript">
 		var Profit = document.getElementById("Profit");
+		var Days_cnt = document.getElementById("Days");
+		var price = 0;
 		var ratio = 0;
-		var days = 0;
+		var dealsdays = 0;
 		var amount = 0;
+		var Days = 0;
 			function count(){
             	var cost = document.getElementById("Cost").value;
 				switch (cost) {
 					case "Lv1" :
+						price = 1000;
 						ratio = 2.86;
-						days = 180;
+						dealsdays = 180;
 						break;
 					case "Lv2" :
+						price = 3000;
 						ratio = 10.71;
-						days = 360;
+						dealsdays = 360;
 						break;
 					case "Lv3" :
+						price = 5000;
 						ratio = 17.85;
-						days = 360;
+						dealsdays = 360;
 						break;
 					case "Lv4" :
+						price = 10000;
 						ratio = 35.71;
-						days = 360;
+						dealsdays = 360;
 						break;
 					case "Lv5" :
+						price = 20000;
 						ratio = 78.57;
-						days = 360;	
+						dealsdays = 360;	
 						break;
 					case "Lv6" :
+						price = 30000;
 						ratio = 128.57;
-						days = 360;	
+						dealsdays = 360;	
 						break;
 					case "Lv7" :
+						price = 50000;
 						ratio = 214.28;
-						days = 360;	
+						dealsdays = 360;	
 						break;
 					case "Lv8" :
+						price = 100000;
 						ratio = 428.57;
-						days = 360;	
+						dealsdays = 360;	
 						break;						
 					default :
 				} 
-				amount = ratio*days;
-				Profit.value=amount.toFixed(2)
+				amount = ratio*dealsdays;
+				Days = Math.ceil(price/ratio);
+				Profit.value=amount.toFixed(2);
+				Days_cnt.vlue=Days;
+				
 			}
 		alert("Welcome!!");
 	</script>
