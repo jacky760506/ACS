@@ -68,16 +68,6 @@
 		<input type="text" id="Profit1" name="Profit1">
 		<br>
 		<label for="Days">回本天數</label>
-		<label for="Profit">Daily Profit</label>
-		<input type="text" id="Profit" name="Profit">
-		<br>
-		<label for="Profit">Daily Profit</label>
-		<input type="text" id="Profit" name="Profit">
-		<br>
-		<label for="Profit1">Final Profit</label>
-		<input type="text" id="Profit1" name="Profit1">
-		<br>
-		<label for="Days">Days</label>
 		<input type="text" id="Days" name="Days">
 		<br>
 	</form>
@@ -96,7 +86,7 @@
 				var base = 0;
 				var i = 1;
 				var rate = 0;
-				var final_amount = 0;
+				var dividend_amount = 0;
 				var daily_amount = 0;
 				var total = 0;
             	var cost = document.getElementById("Cost").value;
@@ -173,11 +163,11 @@
 					if ( i%7 == 0 ){
 						total = (1+rate) * ( total + base );
 					}
-					final_amount = ratio*(i+1) + total;
+					dividend_amount = ratio*(i+1) + total;
 					i++;
 				}
 				Profit.value=daily_amount.toFixed(2);
-				Profit1.value=final_amount.toFixed(2);
+				Profit1.value=dividend_amount.toFixed(2);
 				Days_cnt.value=Days;
 			}
 		alert("Welcome!!");
