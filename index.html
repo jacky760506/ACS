@@ -21,6 +21,16 @@
             background-color: lightblue;
     		color: black;
 		}	
+		input[type=text1] {
+			width: 100px;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid blue;
+			border-radius: 4px;
+            background-color: lightblue;
+    		color: black;
+		}	
 		.button {
 			  display: inline-block;
 			  padding: 15px 25px;
@@ -67,6 +77,10 @@
 		<label for="Days">Days</label>
 		<input type="text" id="Days" name="Days">
 		<br>
+		<br>
+		<br>
+		<label for="No1">A</label>
+		<input type="text1" id="No1" name="No1">
 	</form>
 	<button class="button" onclick= count()>Enter</button>
 	
@@ -128,53 +142,7 @@
 				Days = Math.ceil(price/ratio);
 				Profit.value=amount.toFixed(2);
 				Days_cnt.value=Days;
-				var bst = new BinarySearchTree();
-				alert( bst.push(3) );
 			}
-			
-			function Node(val){
-				this.value = val;
-				this.left = val;
-				this.right = val;
-			}
-			function BinarySearchTree(){
-				this.root = null;
-			}
-			
-			BinarySearchTree.prototype.push = function(val){
-				var root = this.root;
-
-				if(!root){
-					this.root = new Node(val);
-					return;
-				}
-
-				var currentNode = root;
-				var newNode = new Node(val); 
-
-				while(currentNode){
-					if(val < currentNode.value){
-						if(!currentNode.left){
-							currentNode.left = newNode;
-							break;
-						}
-						else{
-							currentNode = currentNode.left;
-						}
-					}
-					else{
-						if(!currentNode.right){
-							currentNode.right = newNode;
-							break;
-						}
-						else{
-							currentNode = currentNode.right;
-						}
-					}
-				}
-
-			}
-			
 		alert("Welcome!!");
 	</script>
 </body>
