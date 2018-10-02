@@ -49,7 +49,7 @@
 		<h1>ALLIANCE  CAPITALS  INVESTMENT  SYSTEM</h1>
 	</div>
 	<form>
-		<label for="Cost">Cost</label>
+		<label for="Cost">本金</label>
 			<select Id="Cost" style="width: 150px;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;border: 2px solid blue;border-radius: 4px;background-color: lightblue;color: black;">
 				<option value="Lv1">1000</option>
 				<option value="Lv2">3000</option>
@@ -61,13 +61,13 @@
 				<option value="Lv8">100000</option>
 			</select>
 		<br>
-		<label for="Profit">Daily Profit</label>
+		<label for="Profit">報酬營收</label>
 		<input type="text" id="Profit" name="Profit">
 		<br>
-		<label for="Profit1">Final Profit</label>
+		<label for="Profit1">複利報酬營收</label>
 		<input type="text" id="Profit1" name="Profit1">
 		<br>
-		<label for="Days">Days</label>
+		<label for="Days">回本天數</label>
 		<input type="text" id="Days" name="Days">
 		<br>
 	</form>
@@ -149,11 +149,10 @@
 						break;						
 					default :
 				}
-				while (daily_amount < price) {
+				while (i < dealsdays) {
 					if ( i%7 == 0 ){
-						total = (1+rate) * ( total + base );
-					}
-					daily_amount = ratio*i + total;
+						daily_amount = ratio*i;
+						}
 					i++;
 				}
 				Days = i-1;
