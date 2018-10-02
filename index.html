@@ -69,6 +69,7 @@
 		<br>
 	</form>
 	<button class="button" onclick= count()>Enter</button>
+	
 	<script language="JavaScript">
 		var Profit = document.getElementById("Profit");
 		var Days_cnt = document.getElementById("Days");
@@ -77,6 +78,7 @@
 		var dealsdays = 0;
 		var amount = 0;
 		var Days = 0;
+		
 			function count(){
             	var cost = document.getElementById("Cost").value;
 				switch (cost) {
@@ -121,12 +123,58 @@
 						dealsdays = 360;	
 						break;						
 					default :
-				} 
+				}
 				amount = ratio*dealsdays;
 				Days = Math.ceil(price/ratio);
 				Profit.value=amount.toFixed(2);
 				Days_cnt.value=Days;
+				var bst = new BinarySearchTree();
+				alert( bst.push(3) );
 			}
+			
+			function Node(val){
+				this.value = val;
+				this.left = val;
+				this.right = val;
+			}
+			function BinarySearchTree(){
+				this.root = null;
+			}
+			
+			BinarySearchTree.prototype.push = function(val){
+				var root = this.root;
+
+				if(!root){
+					this.root = new Node(val);
+					return;
+				}
+
+				var currentNode = root;
+				var newNode = new Node(val); 
+
+				while(currentNode){
+					if(val < currentNode.value){
+						if(!currentNode.left){
+							currentNode.left = newNode;
+							break;
+						}
+						else{
+							currentNode = currentNode.left;
+						}
+					}
+					else{
+						if(!currentNode.right){
+							currentNode.right = newNode;
+							break;
+						}
+						else{
+							currentNode = currentNode.right;
+						}
+					}
+				}
+
+			}
+			
 		alert("Welcome!!");
 	</script>
 </body>
