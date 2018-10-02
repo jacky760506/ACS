@@ -128,16 +128,15 @@
 					default :
 				}
 				var total = 0;
-				/*while (amount < price) {
-					if ( i mod 7 == 0 ){
+				while (amount < price) {
+					if ( i%7 == 0 ){
 						dividend = dividend*1.005 + total;
 						total = dividend;
 					}
-					
 					amount = ratio*i + total;
 					i++;
-				}*/
-				alert(6%7);
+				}
+				alert(total);
 				alert(amount);
 				Days = i;
 				Profit.value=amount.toFixed(2);
