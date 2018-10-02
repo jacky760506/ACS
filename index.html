@@ -17,17 +17,7 @@
 			margin: 8px 0;
 			box-sizing: border-box;
 			border: 2px solid blue;
-			border-radius: 4px;
-            background-color: lightblue;
-    		color: black;
-		}	
-		input[type=text1] {
-			width: 100px;
-			padding: 12px 20px;
-			margin: 8px 0;
-			box-sizing: border-box;
-			border: 2px solid blue;
-			border-radius: 4px;
+			border-radius: 8px;
             background-color: lightblue;
     		color: black;
 		}	
@@ -77,10 +67,6 @@
 		<label for="Days">Days</label>
 		<input type="text" id="Days" name="Days">
 		<br>
-		<br>
-		<br>
-		<label for="No1">A</label>
-		<input type="text1" id="No1" name="No1">
 	</form>
 	<button class="button" onclick= count()>Enter</button>
 	
@@ -92,6 +78,7 @@
 		var dealsdays = 0;
 		var amount = 0;
 		var Days = 0;
+		var dividend = 0; 
 		
 			function count(){
             	var cost = document.getElementById("Cost").value;
@@ -100,45 +87,53 @@
 						price = 1000;
 						ratio = 2.86;
 						dealsdays = 180;
+						dividend = 556.61;
 						break;
 					case "Lv2" :
 						price = 3000;
 						ratio = 10.71;
 						dealsdays = 360;
+						dividend = 4588.39;
 						break;
 					case "Lv3" :
 						price = 5000;
 						ratio = 17.85;
 						dealsdays = 360;
+						dividend = 7862.7;
 						break;
 					case "Lv4" :
 						price = 10000;
 						ratio = 35.71;
 						dealsdays = 360;
+						dividend = 17111.65;
 						break;
 					case "Lv5" :
 						price = 20000;
 						ratio = 78.57;
-						dealsdays = 360;	
+						dealsdays = 360;
+						dividend = 38735.56;
 						break;
 					case "Lv6" :
 						price = 30000;
 						ratio = 128.57;
-						dealsdays = 360;	
+						dealsdays = 360;
+						dividend = 65232.95;
 						break;
 					case "Lv7" :
 						price = 50000;
 						ratio = 214.28;
-						dealsdays = 360;	
+						dealsdays = 360;
+						dividend = 111911.43;
 						break;
 					case "Lv8" :
 						price = 100000;
 						ratio = 428.57;
 						dealsdays = 360;	
+						dividend = 237281.29;
 						break;						
 					default :
 				}
-				amount = ratio*dealsdays;
+				amount = (ratio*dealsdays) + dividend;
 				Days = Math.ceil(price/ratio);
 				Profit.value=amount.toFixed(2);
 				Days_cnt.value=Days;
