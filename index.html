@@ -17,7 +17,7 @@
 			margin: 8px 0;
 			box-sizing: border-box;
 			border: 2px solid blue;
-			border-radius: 4px;
+			border-radius: 8px;
             background-color: lightblue;
     		color: black;
 		}	
@@ -61,70 +61,113 @@
 				<option value="Lv8">100000</option>
 			</select>
 		<br>
-		<label for="Profit">Profit</label>
+		<label for="Profit">Daily Profit</label>
 		<input type="text" id="Profit" name="Profit">
+		<br>
+		<label for="Profit1">Final Profit</label>
+		<input type="text" id="Profit1" name="Profit1">
 		<br>
 		<label for="Days">Days</label>
 		<input type="text" id="Days" name="Days">
 		<br>
 	</form>
 	<button class="button" onclick= count()>Enter</button>
+	
 	<script language="JavaScript">
-		var Profit = document.getElementById("Profit");
-		var Days_cnt = document.getElementById("Days");
-		var price = 0;
-		var ratio = 0;
-		var dealsdays = 0;
-		var amount = 0;
-		var Days = 0;
+	
 			function count(){
+				var Profit = document.getElementById("Profit");
+				var Profit1 = document.getElementById("Profit1");
+				var Days_cnt = document.getElementById("Days");
+				var price = 0;
+				var ratio = 0;
+				var dealsdays = 0;
+				var Days = 0;
+				var base = 0;
+				var i = 1;
+				var rate = 0;
+				var final_amount = 0;
+				var daily_amount = 0;
+				var total = 0;
             	var cost = document.getElementById("Cost").value;
 				switch (cost) {
 					case "Lv1" :
 						price = 1000;
 						ratio = 2.86;
 						dealsdays = 180;
+						base = 20;
+						rate = 0.005;
 						break;
 					case "Lv2" :
 						price = 3000;
 						ratio = 10.71;
 						dealsdays = 360;
+						base = 75;
+						rate = 0.006;
 						break;
 					case "Lv3" :
 						price = 5000;
 						ratio = 17.85;
 						dealsdays = 360;
+						base = 125;
+						rate = 0.007;
 						break;
 					case "Lv4" :
 						price = 10000;
 						ratio = 35.71;
 						dealsdays = 360;
+						base = 250;
+						rate = 0.01;
 						break;
 					case "Lv5" :
 						price = 20000;
 						ratio = 78.57;
-						dealsdays = 360;	
+						dealsdays = 360;
+						base = 550;
+						rate = 0.011;
 						break;
 					case "Lv6" :
 						price = 30000;
 						ratio = 128.57;
-						dealsdays = 360;	
+						dealsdays = 360;
+						base = 900;
+						rate = 0.012;
 						break;
 					case "Lv7" :
 						price = 50000;
 						ratio = 214.28;
-						dealsdays = 360;	
+						dealsdays = 360;
+						base = 1500;
+						rate = 0.013;
 						break;
 					case "Lv8" :
 						price = 100000;
 						ratio = 428.57;
-						dealsdays = 360;	
+						dealsdays = 360;
+						base = 3000;
+						rate = 0.015;
 						break;						
 					default :
-				} 
-				amount = ratio*dealsdays;
-				Days = Math.ceil(price/ratio);
-				Profit.value=amount.toFixed(2);
+				}
+				while (daily_amount < price) {
+					if ( i%7 == 0 ){
+						total = (1+rate) * ( total + base );
+					}
+					daily_amount = ratio*i + total;
+					i++;
+				}
+				Days = i-1;
+				total = 0;
+				i = 0;
+				while (i < dealsdays) {
+					if ( i%7 == 0 ){
+						total = (1+rate) * ( total + base );
+					}
+					final_amount = ratio*(i+1) + total;
+					i++;
+				}
+				Profit.value=daily_amount.toFixed(2);
+				Profit1.value=final_amount.toFixed(2);
 				Days_cnt.value=Days;
 			}
 		alert("Welcome!!");
