@@ -61,8 +61,11 @@
 				<option value="Lv8">100000</option>
 			</select>
 		<br>
-		<label for="Profit">Profit</label>
+		<label for="Profit">Daily Profit</label>
 		<input type="text" id="Profit" name="Profit">
+		<br>
+		<label for="Profit1">Final Profit</label>
+		<input type="text" id="Profit1" name="Profit1">
 		<br>
 		<label for="Days">Days</label>
 		<input type="text" id="Days" name="Days">
@@ -74,15 +77,18 @@
 	
 			function count(){
 				var Profit = document.getElementById("Profit");
+				var Profit1 = document.getElementById("Profit1");
 				var Days_cnt = document.getElementById("Days");
 				var price = 0;
 				var ratio = 0;
 				var dealsdays = 0;
-				var amount = 0;
 				var Days = 0;
-				var dividend = 0;
+				var base = 0;
 				var i = 0;
-				var interest = 0;
+				var rate = 0;
+				var final_amount = 0;
+				var daily_amount = 0;
+				var total = 0;
 
             	var cost = document.getElementById("Cost").value;
 				switch (cost) {
@@ -90,8 +96,8 @@
 						price = 1000;
 						ratio = 2.86;
 						dealsdays = 180;
-						dividend = 20;
-						interest = 0.005;
+						base = 20;
+						rate = 0.005;
 						break;
 					case "Lv2" :
 						price = 3000;
@@ -130,12 +136,11 @@
 						break;						
 					default :
 				}
-				var total = 0;
-				while (amount < price) {
+				while (daily_amount < price) {
 					if ( i%7 == 0 ){
-						total = (1+interest) * ( total + dividend );
+						total = (1+rate) * ( total + base );
 					}
-					amount = ratio*(i+1) + total;
+					daily_amount = ratio*(i+1) + total;
 					i++;
 				}
 				Days = i;
@@ -143,12 +148,13 @@
 				i = 0;
 				while (i < dealsdays) {
 					if ( i%7 == 0 ){
-						total = (1+interest) * ( total + dividend );
+						total = (1+rate) * ( total + base );
 					}
-					amount = ratio*(i+1) + total;
+					final_amount = ratio*(i+1) + total;
 					i++;
 				}
-				Profit.value=amount.toFixed(2);
+				Profit.value=daily_amount.toFixed(2);
+				Profit1.value=final_amount.toFixed(2);
 				Days_cnt.value=Days;
 			}
 		alert("Welcome!");
