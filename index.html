@@ -84,7 +84,7 @@
 				var dealsdays = 0;
 				var Days = 0;
 				var base = 0;
-				var i = 1;
+				var i = 0;
 				var rate = 0;
 				var dividend_amount = 0;
 				var daily_amount = 0;
@@ -156,14 +156,14 @@
 						}
 					i++;
 				}
-				Days = i-1;
+				Days = i;
 				total = 0;
 				i = 0;
 				while (i < dealsdays) {
 					if ( i%7 == 0 ){
 						total = (1+rate) * ( total + base );
 					}
-					dividend_amount = ratio*(i+1) + total;
+					dividend_amount = total;
 					i++;
 				}
 				Profit.value=daily_amount.toFixed(2);
