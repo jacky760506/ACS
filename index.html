@@ -156,8 +156,6 @@
 					daily_amount = ratio*i;
 					i++;
 				}
-				daily_amount = 0;
-				daily_amount = ratio*price;
 				Days = i-1;
 				total = 0;
 				i = 0;
@@ -168,11 +166,13 @@
 					dividend_amount = total;
 					i++;
 				}
+				daily_amount = 0;
+				daily_amount = ratio*price;
 				Profit.value=daily_amount.toFixed(2);
 				Profit1.value=dividend_amount.toFixed(2);
 				Days_cnt.value=Days;
 			}
-		alert("Welcome!!!");
+		alert("Welcome!!");
 	</script>
 </body>
 	
