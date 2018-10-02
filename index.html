@@ -61,7 +61,6 @@
 				<option value="Lv8">100000</option>
 			</select>
 		<br>
-<<<<<<< HEAD
 		<label for="Profit">報酬營收</label>
 		<input type="text" id="Profit" name="Profit">
 		<br>
@@ -69,7 +68,9 @@
 		<input type="text" id="Profit1" name="Profit1">
 		<br>
 		<label for="Days">回本天數</label>
-=======
+		<label for="Profit">Daily Profit</label>
+		<input type="text" id="Profit" name="Profit">
+		<br>
 		<label for="Profit">Daily Profit</label>
 		<input type="text" id="Profit" name="Profit">
 		<br>
@@ -77,7 +78,6 @@
 		<input type="text" id="Profit1" name="Profit1">
 		<br>
 		<label for="Days">Days</label>
->>>>>>> 2342cca4019e038b31e95c0a973dc5dc2f946bcc
 		<input type="text" id="Days" name="Days">
 		<br>
 	</form>
@@ -99,10 +99,6 @@
 				var final_amount = 0;
 				var daily_amount = 0;
 				var total = 0;
-<<<<<<< HEAD
-=======
-
->>>>>>> 2342cca4019e038b31e95c0a973dc5dc2f946bcc
             	var cost = document.getElementById("Cost").value;
 				switch (cost) {
 					case "Lv1" :
@@ -163,18 +159,11 @@
 						break;						
 					default :
 				}
-<<<<<<< HEAD
+
 				while (i < dealsdays) {
 					if ( i%7 == 0 ){
 						daily_amount = ratio*i;
 						}
-=======
-				while (daily_amount < price) {
-					if ( i%7 == 0 ){
-						total = (1+rate) * ( total + base );
-					}
-					daily_amount = ratio*i + total;
->>>>>>> 2342cca4019e038b31e95c0a973dc5dc2f946bcc
 					i++;
 				}
 				Days = i-1;
