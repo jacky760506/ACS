@@ -127,9 +127,14 @@
 						break;						
 					default :
 				}
+				var total = 0;
 				while (amount < price) {
-					dividend = dividend*1.005 + dividend;
-					amount = ratio*7*i + dividend;
+					if ( i mod 7 == 0 ){
+						dividend = dividend*1.005 + total;
+						total = dividend;
+					}
+					amount = ratio*i + total;
+					
 					i++;
 					alert(dividend);
 					alert(amount);
