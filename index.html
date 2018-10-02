@@ -71,24 +71,27 @@
 	<button class="button" onclick= count()>Enter</button>
 	
 	<script language="JavaScript">
-		var Profit = document.getElementById("Profit");
-		var Days_cnt = document.getElementById("Days");
-		var price = 0;
-		var ratio = 0;
-		var dealsdays = 0;
-		var amount = 0;
-		var Days = 0;
-		var dividend = 0;
-		var i = 0;
-		
+	
 			function count(){
+				var Profit = document.getElementById("Profit");
+				var Days_cnt = document.getElementById("Days");
+				var price = 0;
+				var ratio = 0;
+				var dealsdays = 0;
+				var amount = 0;
+				var Days = 0;
+				var dividend = 0;
+				var i = 0;
+				var interest = 0;
+
             	var cost = document.getElementById("Cost").value;
 				switch (cost) {
 					case "Lv1" :
 						price = 1000;
 						ratio = 2.86;
-						dividend = 20;
 						dealsdays = 180;
+						dividend = 20;
+						interest = 0.005;
 						break;
 					case "Lv2" :
 						price = 3000;
@@ -128,23 +131,26 @@
 					default :
 				}
 				var total = 0;
-				var interest = 0.005;
 				while (amount < price) {
 					if ( i%7 == 0 ){
 						total = (1+interest) * ( total + dividend );
 					}
-					alert(total);
 					amount = ratio*(i+1) + total;
-					alert(amount);
 					i++;
 				}
-				
-				
 				Days = i;
+				i = 0;
+				while (i < dealsdays) {
+					if ( i%7 == 0 ){
+						total = (1+interest) * ( total + dividend );
+					}
+					amount = ratio*(i+1) + total;
+					i++;
+				}
 				Profit.value=amount.toFixed(2);
 				Days_cnt.value=Days;
 			}
-		alert("Welcome!");
+		alert("Welcome!!!");
 	</script>
 </body>
 	
