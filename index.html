@@ -128,10 +128,10 @@
 					default :
 				}
 				var total = 0;
+				var interest = 0.005;
 				while (amount < price) {
 					if ( i%7 == 0 ){
-						dividend = dividend*1.005 + total;
-						total = dividend;
+						total = (1+interest) * ( total + dividend );
 					}
 					alert(total);
 					amount = ratio*(i+1) + total;
@@ -144,7 +144,7 @@
 				Profit.value=amount.toFixed(2);
 				Days_cnt.value=Days;
 			}
-		alert("Welcome!!!");
+		alert("Welcome!");
 	</script>
 </body>
 	
