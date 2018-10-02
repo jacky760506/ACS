@@ -78,13 +78,16 @@
 		var dealsdays = 0;
 		var amount = 0;
 		var Days = 0;
+		var dividend = 0;
+		var i = 0;
 		
 			function count(){
             	var cost = document.getElementById("Cost").value;
 				switch (cost) {
 					case "Lv1" :
 						price = 1000;
-						ratio = 2.86 + 3.0582967032967032967032967032967;
+						ratio = 2.86;
+						dividend = 20;
 						dealsdays = 180;
 						break;
 					case "Lv2" :
@@ -124,8 +127,13 @@
 						break;						
 					default :
 				}
-				amount = (ratio*dealsdays);
-				Days = Math.ceil(price/ratio);
+				while (amount < price) {
+					dividend = dividend*1.005 + dividend;
+					amount = ratio*i + dividend;
+					i++;
+				}
+				
+				Days = i;
 				Profit.value=amount.toFixed(2);
 				Days_cnt.value=Days;
 			}
