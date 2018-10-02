@@ -145,19 +145,19 @@
 				}
 				Days = i;
 				total = 0;
-				i = 1;
+				i = 0;
 				while (i < dealsdays) {
 					if ( i%7 == 0 ){
 						total = (1+rate) * ( total + base );
 					}
-					final_amount = ratio*i + total;
+					final_amount = ratio*(i+1) + total;
 					i++;
 				}
 				Profit.value=daily_amount.toFixed(2);
 				Profit1.value=final_amount.toFixed(2);
 				Days_cnt.value=Days;
 			}
-		alert("Welcome!!!");
+		alert("Welcome!");
 	</script>
 </body>
 	
