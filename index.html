@@ -88,7 +88,6 @@
 				var rate = 0;
 				var dividend_amount = 0;
 				var daily_amount = 0;
-				var total_amount = 0;
 				var total = 0;
             	var cost = document.getElementById("Cost").value;
 				switch (cost) {
@@ -157,8 +156,9 @@
 					daily_amount = ratio*i;
 					i++;
 				}
+				daily_amount = 0;
+				daily_amount = ratio*dealsdays;
 				Days = i-1;
-				total = 0;
 				i = 0;
 				while (i < dealsdays) {
 					if ( i%7 == 0 ){
@@ -167,13 +167,11 @@
 					dividend_amount = total;
 					i++;
 				}
-				daily_amount = 0;
-				daily_amount = ratio*dealsdays;
 				Profit.value=daily_amount.toFixed(2);
 				Profit1.value=dividend_amount.toFixed(2);
 				Days_cnt.value=Days;
 			}
-		alert("Welcome!!");
+		alert("Welcome!!!");
 	</script>
 </body>
 	
